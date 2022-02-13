@@ -9,10 +9,11 @@ const App = () => {
 
   // Callbacks
   const addNumberList = () => {
-    // eslint-disable-next-line no-undef
-    const numberToAdd = BigInt(number);
-    setNumberList([...numberList, numberToAdd]);
-    setNumber("");
+    const numberToAdd = +number;
+    if (Number.isFinite(numberToAdd)) {
+      setNumberList([...numberList, numberToAdd]);
+      setNumber("");
+    }
   };
   return (
     <div>
